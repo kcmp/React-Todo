@@ -37,12 +37,32 @@ class App extends Component {
     };
   }
 
+  // Methods
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
 
+   addItem = event => {
+    event.preventDefault();
+    this.setState({
+      currentList: [...this.state.currentList, { todo: this.state.inputValue }],
+      inputValue: ''
+    });
+  }
+
+//render
 render() {
   return(
     <div>
       <h2>Welcome to your Todo App!</h2>
       <TodoList list={this.state.currentList} />
+      <TodoForm
+          handleChange={this.handleChange}
+          inputValue={this.state.inputValue}
+          addItem={this.addItem}
+        />
     </div>
     );
   }
