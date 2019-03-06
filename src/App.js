@@ -36,6 +36,16 @@ class App extends Component {
       inputValue: ""
     };
   }
+
+
+render() {
+  return(
+    <div>
+      <h2>Welcome to your Todo App!</h2>
+      <TodoList list={this.state.currentList} />
+    </div>
+    );
+  }
 }
 
 export default App;
