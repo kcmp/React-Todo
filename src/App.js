@@ -44,13 +44,21 @@ class App extends Component {
     });
   }
 
-   addItem = event => {
+  addItem = event => {
     event.preventDefault();
     this.setState({
-      currentList: [...this.state.currentList, { todo: this.state.inputValue }],
-      inputValue: ''
+      taskItems: [
+        ...this.state.taskItems,
+        {
+          task: this.state.inputValue,
+          id: Date.now(),
+          completed: false,
+          class: ""
+        }
+      ],
+      inputValue: ""
     });
-  }
+  };
 
 //render
 render() {
