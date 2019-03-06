@@ -65,11 +65,15 @@ render() {
   return(
     <div>
       <h2>Welcome to your Todo App!</h2>
-      <TodoList list={this.state.currentList} />
-      <TodoForm
+      <TodoList
+          list={this.state.taskItems}
+          
+        />
+        <TodoForm
           handleChange={this.handleChange}
           inputValue={this.state.inputValue}
           addItem={this.addItem}
+          
         />
     </div>
     );
