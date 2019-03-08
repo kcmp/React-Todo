@@ -40,40 +40,41 @@ class App extends Component {
 
   
 
-  addItem = event => {
-    event.preventDefault();
-    this.setState({
-      taskItems: [
-        ...this.state.taskItems,
-        {
-          task: this.state.inputValue,
-          id: Date.now(),
-          completed: false,
-          class: ""
-        }
-      ],
-      inputValue: ""
-    });
-  };
+    addItemHandler = event => {
+      event.preventDefault();
+      this.setState(prevState => {
+        return {
+          taskItems: [
+            ...prevState.taskItems,
+            {
+              completed: false,
+              id: Date.now(),
+              task: prevState.inputValue
+            }
+          ],
+          inputValue: ""
+        };
+      });
+    };
 
 //render
 render() {
-  return(
-    <div>
-      <h2>Welcome to your Todo App!</h2>
+  return (
+    <div className="container">
+      <h2>Welcome to the Todo App!</h2>
       <TodoList
-          list={this.state.taskItems}
-          
-        />
-        <TodoForm
-          handleChange={this.handleChange}
-          inputValue={this.state.inputValue}
-          addItem={this.addItem}
-          
-        />
+        list={this.state.taskItems}
+        markComplete={this.markComplete}
+      />
+      <TodoForm
+        handleChange={this.handleChange}
+        inputValue={this.state.inputValue}
+        addItemHandler={this.addItemHandler}
+        removeCompleted={this.removeCompleted}
+      />
     </div>
-    );
-  }
+  );
+}
 }
 
 export default App;

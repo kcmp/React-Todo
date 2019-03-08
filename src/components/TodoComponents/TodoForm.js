@@ -3,7 +3,7 @@ import "./Todo.css";
 
 const TodoForm = props => {
     return (
-      <form onSubmit={props.addItem}>
+      <form onSubmit={props.addItemHandler}>
         <input
           type="text"
           name="inputValue"
