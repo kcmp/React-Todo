@@ -30,19 +30,13 @@ class App extends Component {
     super();
     this.state = {
       taskItems: currentList,
-      task: "",
-      id: "",
-      completed: "",
       inputValue: ""
     };
   }
 
   // Methods
   handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  }
+    this.setState({[event.target.name]: event.target.value});}
 
   
 

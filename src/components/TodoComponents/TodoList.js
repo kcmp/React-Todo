@@ -10,8 +10,8 @@ const TodoList = props => {
     return (
         <ul>
             {props.list.map((i, index) => (
-        <ToDo item={i} key={index} />
-      ))}
+            <ToDo item={i} key={index} />
+            ))}
         </ul>
     );
 }
