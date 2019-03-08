@@ -57,6 +57,30 @@ class App extends Component {
       });
     };
 
+    markComplete = taskId => {
+      this.setState(prevState => {
+        return {
+          taskItems: prevState.taskItems.map(i => {
+            if (i.id === taskId) {
+              return {
+                task: i.task,
+                id: i.id,
+                completed: !i.completed
+              };
+            } else {
+              return i;
+            }
+          })
+        };
+      });
+    };
+  
+    removeCompleted = () => {
+      this.setState({
+        taskItems: this.state.taskItems.filter(i => i.completed === false)
+      });
+    };
+
 //render
 render() {
   return (
